@@ -5,7 +5,7 @@ using Il2CppScheduleOne.PlayerScripts;
 using Newtonsoft.Json;
 
 
-[assembly: MelonInfo(typeof(ScheduleITeleportMenu.Main), "Teleport Menu", "1.0.0", "MrTibbz")]
+[assembly: MelonInfo(typeof(ScheduleITeleportMenu.Main), "Teleport Menu", "1.0.2", "MrTibbz")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 
 namespace ScheduleITeleportMenu
@@ -133,6 +133,7 @@ namespace ScheduleITeleportMenu
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "RV", new Vector3(14f, 0.9f, -77f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Motel", new Vector3(-66f, 1.6f, 83f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Sweatshop", new Vector3(-64f, 0.4f, 142f));
+            contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Storage Unit", new Vector3(-5.1f, 1f, 103f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Bungalow", new Vector3(-168f, -2.7f, 114f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Barn", new Vector3(181f, 1f, -14f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Docks Warehouse", new Vector3(-81f, -1.5f, -59f));
