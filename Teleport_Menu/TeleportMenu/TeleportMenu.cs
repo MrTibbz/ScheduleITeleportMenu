@@ -5,7 +5,7 @@ using Il2CppScheduleOne.PlayerScripts;
 using Newtonsoft.Json;
 
 
-[assembly: MelonInfo(typeof(ScheduleITeleportMenu.Main), "Teleport Menu", "1.0.2", "MrTibbz")]
+[assembly: MelonInfo(typeof(ScheduleITeleportMenu.Main), "Teleport Menu", "1.0.3", "MrTibbz")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 
 namespace ScheduleITeleportMenu
@@ -170,10 +170,12 @@ namespace ScheduleITeleportMenu
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Handy Hank's", new Vector3(104f, 1f, 25f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Gas-Mart", new Vector3(-113f, -2.9f, 68f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Gas-Mart/Auto Shop", new Vector3(16f, 1f, -16.5f));
+            contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Pawnshop", new Vector3(-61.3f, 1f, 53f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Shred Shack", new Vector3(-39f, -2.9f, 121f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Ray's Real Estate", new Vector3(81.5f, 1f, -7f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Blueball's Boutique", new Vector3(71f, 1f, -8f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Thrifty Threads", new Vector3(-22.5f, 1f, 12f));
+            contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Top Tattoo", new Vector3(-130f, -2.9f, 67.4f));
             return contentHeight;
         }
 
@@ -182,7 +184,11 @@ namespace ScheduleITeleportMenu
             float contentHeight = 0f;
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Warehouse", new Vector3(-42f, -1.5f, 43f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Warehouse Inside", new Vector3(-42f, -1f, 38f));
+            contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Casino", new Vector3(22.8f, 2f, 89f));
             contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Construction site", new Vector3(-130f, -3f, 97f));
+            contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Water Front", new Vector3(51.5f, 1f, 95f));
+            contentHeight += AddTeleportButton(ref yOffset, startX, buttonWidth, "Westville", new Vector3(-137.2f, -3f, 44f));
+
             return contentHeight;
         }
 
@@ -241,7 +247,7 @@ namespace ScheduleITeleportMenu
             public float windowX = 100f;
             public float windowY = 100f;
             public float windowWidth = 490;
-            public float windowHeight = 630;
+            public float windowHeight = 653;
 
             public float bgColorR = 50f;
             public float bgColorG = 50f;
@@ -330,7 +336,7 @@ namespace ScheduleITeleportMenu
         private void ResetSettings()
         {
 
-            windowRect = new Rect(100f, 100f, 490f, 630);
+            windowRect = new Rect(100f, 100f, 490f, 653);
             windowOpacity = 1f;
             fontSize = 14f;
 
