@@ -1,4 +1,4 @@
-Teleport Menu for game version IL2CPP
+Teleport Menu for both game version IL2CPP & MONO
 
 Open teleport menu with F2
 
