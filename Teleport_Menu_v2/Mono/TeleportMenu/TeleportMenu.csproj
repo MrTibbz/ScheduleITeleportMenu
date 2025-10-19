@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net472</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<PlatformTarget>x64</PlatformTarget>
+	<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	<Platforms>AnyCPU;x64</Platforms>
+	  <LangVersion>10.0</LangVersion>
+	  <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LavaGang.MelonLoader" Version="0.7.0" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="StbImageSharp" Version="2.30.15" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	  <Reference Include="Assembly-CSharp">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\Assembly-CSharp.dll</HintPath>
+	  </Reference>
+	  <Reference Include="FishNet.Runtime">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\FishNet.Runtime.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.AssetBundleModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.CoreModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.IMGUIModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.InputLegacyModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.InputModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.InputModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TextCoreFontEngineModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TextCoreTextEngineModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.TextRenderingModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UI">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.UI.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UIElementsModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="UnityEngine.UIModule">
+		  <HintPath>D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Schedule I_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="MelonLoader">
+		  <HintPath>A:\Games\SteamLibrary\steamapps\common\Schedule I\MelonLoader\net6\MelonLoader.dll</HintPath>
+	  </Reference>
+	  <Reference Include="0Harmony">
+		  <HintPath>A:\Games\SteamLibrary\steamapps\common\Schedule I\MelonLoader\net6\0Harmony.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Newtonsoft.Json">
+		  <HintPath>A:\Games\SteamLibrary\steamapps\common\Schedule I\MelonLoader\Assemblies\Newtonsoft.Json.dll</HintPath>
+	  </Reference>
+  </ItemGroup>
+	<ItemGroup>
+		<BuildArtifacts Include="$(TargetPath)" />
+		<PluginOutput Include="D:\Stuff For Games\S1\Game branches for testing\alternate-branch\Mods" />
+	</ItemGroup>
+	<Target Name="Copy and Test" AfterTargets="PostBuildEvent">
+		<Copy DestinationFolder="@(PluginOutput)" OverwriteReadOnlyFiles="true" SkipUnchangedFiles="false" SourceFiles="@(BuildArtifacts)" />
+	</Target>
+</Project>
