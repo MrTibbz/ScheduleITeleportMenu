@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-using UnityEngine;
-using HarmonyLib;
+﻿using HarmonyLib;
 using MelonLoader;
 using MelonLoader.Utils;
 using Newtonsoft.Json;
@@ -9,9 +7,11 @@ using ScheduleOne.Economy;
 using ScheduleOne.Money;
 using ScheduleOne.PlayerScripts;
 using ScheduleOne.Quests;
+using System.Reflection;
+using UnityEngine;
 
 
-[assembly: MelonInfo(typeof(ScheduleITeleportMenu.Main), "Teleport Menu", "2.1.0", "MrTibbz")]
+[assembly: MelonInfo(typeof(ScheduleITeleportMenu.Main), "Teleport Menu", "2.2.0", "MrTibbz")]
 [assembly: MelonGame("TVGS", "Schedule I")]
 
 namespace ScheduleITeleportMenu
@@ -199,25 +199,27 @@ namespace ScheduleITeleportMenu
         #region UI
         public override void OnGUI()
         {
-            // Handle right-click for Back navigation
-            if (Event.current.type == EventType.MouseDown && Event.current.button == 1)
+            if (isMenuOpen)
             {
-                if (currentMenu == MenuState.Favorites ||
-                    currentMenu == MenuState.Settings ||
-                    currentMenu == MenuState.SubMenu)
+                // Handle right-click for Back navigation
+                if (Event.current.type == EventType.MouseDown && Event.current.button == 1)
                 {
-                    currentMenu = MenuState.Main;
-                    scrollPosition = Vector2.zero; // reset scrollbar
-                    Event.current.Use(); // consume so it doesn’t trigger button clicks
-                }
-                else if (currentMenu == MenuState.Main)
-                {
-                    // close menu if on main
-                    //isMenuOpen = false;
-                    // Event.current.Use();
+                    if (currentMenu == MenuState.Favorites ||
+                        currentMenu == MenuState.Settings ||
+                        currentMenu == MenuState.SubMenu)
+                    {
+                        currentMenu = MenuState.Main;
+                        scrollPosition = Vector2.zero; // reset scrollbar
+                        Event.current.Use(); // consume so it doesn’t trigger button clicks
+                    }
+                    else if (currentMenu == MenuState.Main)
+                    {
+                        // close menu if on main
+                        //isMenuOpen = false;
+                        // Event.current.Use();
+                    }
                 }
             }
-
             // === Handle key rebinding ===
             if (waitingForKey != null && Event.current.type == EventType.KeyDown)
             {
@@ -582,6 +584,7 @@ namespace ScheduleITeleportMenu
             allLocations.Add(new TeleportLocation { Name = "Construction site", Position = new SerializableVector3(new Vector3(-130f, -3f, 97f)), Category = "World" });
             allLocations.Add(new TeleportLocation { Name = "Water Front", Position = new SerializableVector3(new Vector3(51.5f, 1f, 95f)), Category = "World" });
             allLocations.Add(new TeleportLocation { Name = "Westville", Position = new SerializableVector3(new Vector3(-137.2f, -3f, 44f)), Category = "World" });
+            allLocations.Add(new TeleportLocation { Name = "Outside Sewer Office", Position = new SerializableVector3(new Vector3(48f, -8f, 66f)), Category = "World" });
             // -------------------- Dead Drops --------------------
             allLocations.Add(new TeleportLocation { Name = "North Arcade Wall", Position = new SerializableVector3(new Vector3(-48f, -3f, 148f)), Category = "Dead Drops" });
             allLocations.Add(new TeleportLocation { Name = "Behind Thompson Construction", Position = new SerializableVector3(new Vector3(-36f, 1f, 113f)), Category = "Dead Drops" });
@@ -611,6 +614,7 @@ namespace ScheduleITeleportMenu
             allLocations.Add(new TeleportLocation { Name = "Albert Hoover's Stash", Position = new SerializableVector3(new Vector3(-18f, -3f, 147f)), Category = "Supplier Stashes" });
             allLocations.Add(new TeleportLocation { Name = "Shirley Watt's Stash", Position = new SerializableVector3(new Vector3(-66f, -1.5f, 32f)), Category = "Supplier Stashes" });
             allLocations.Add(new TeleportLocation { Name = "Salvador Moreno's Stash", Position = new SerializableVector3(new Vector3(148f, 1f, 35f)), Category = "Supplier Stashes" });
+            allLocations.Add(new TeleportLocation { Name = "Fungul Phil's Stash", Position = new SerializableVector3(new Vector3(13.1f, 1f, 0.4f)), Category = "Supplier Stashes" });
             // -------------------- Saved Locations --------------------
             foreach (var saved in savedLocations)
             {
